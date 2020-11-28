@@ -86,4 +86,6 @@ int main()
     Assert::That(knight("a1", "f3"), Equals(3));
     Assert::That(knight("a1", "f4"), Equals(4));
     Assert::That(knight("a1", "f7"), Equals(5));
+
+    return 0;
 }
