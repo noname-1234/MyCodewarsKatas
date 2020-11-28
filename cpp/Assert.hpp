@@ -26,8 +26,8 @@ Compare<T>* Equals(T Value)
 
 namespace Assert
 {
-    template<typename T>
-    void That(T& Expect, Compare<T>* Actual)
+    template<typename T1, typename T2>
+    void That(T1& Expect, Compare<T2>* Actual)
     {
 
         bool condition = false;
@@ -41,12 +41,26 @@ namespace Assert
             break;
         }
 
-        std::cout << ((condition)? "PASS" : "FAILED") << std::endl;
+        if (condition)
+        {
+            std::cout << "PASS" << std::endl;
+        }
+        else
+        {
+            std::cout << "FAILED, Expect: " << Expect << ", Actual: " << Actual->Value << std::endl;
+        }
+        
+
     }
 
     void That(int Expect, Compare<int>* Actual)
     {
-        Assert::That<int>(Expect, Actual);
+        Assert::That<int, int>(Expect, Actual);
+    }
+
+    void That(std::string Expect, Compare<const char*>* Acutal)
+    {
+        Assert::That<std::string, const char*>(Expect, Acutal);
     }
 }
 
