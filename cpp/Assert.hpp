@@ -47,6 +47,10 @@ void That(int Actual, Compare<int>* Expect) {
     Assert::That<int, int>(Actual, Expect);
 }
 
+void That(long long Actual, Compare<long long>* Expect) {
+    Assert::That<long long, long long>(Actual, Expect);
+}
+
 void That(std::string Actual, Compare<const char*>* Expect) {
     Assert::That<std::string, const char*>(Actual, Expect);
 }
